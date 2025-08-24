@@ -19,7 +19,5 @@ public class ComparadorListStrategy implements ComparadorStrategy {
 		if (!listaAntiga.equals(listaNova)) {
 			montaMap(campo, listaAntiga, listaNova, resultado);
 		}
-		
 	}
-
 }

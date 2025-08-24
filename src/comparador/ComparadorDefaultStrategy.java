@@ -14,5 +14,4 @@ public class ComparadorDefaultStrategy implements ComparadorStrategy {
 	public void comparar(String campo, Object antigo, Object novo, List<Map<String, Object>> resultado) {
 		montaMap(campo, antigo, novo, resultado);
 	}
-
 }
