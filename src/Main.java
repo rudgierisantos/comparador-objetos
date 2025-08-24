@@ -1,13 +1,8 @@
 
 
 import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import gravaLogCampo.AlteracaoLogFactory;
-import gravaLogCampo.InclusaoLogFactory;
+import gravaLogCampo.LogCampoFactory;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -21,16 +16,16 @@ public class Main {
         atual.setNome("Rudgieri Santos");
         atual.setTelefones(Arrays.asList("1111", "3333"));
         atual.setPedidos(Arrays.asList(new Pedido(1, "Pedido A alterado"), new Pedido(3, "Pedido C")));
-//        atual.setTipoCliente(TipoCliente.PESSOA_FISICA);
+        atual.setTipoCliente(TipoCliente.PESSOA_FISICA);
 
 		System.out.println("---------------------------------------// Inclusões // -------------------------------------------------");
-		List<Map<String, Object>> inclusoes = new InclusaoLogFactory().logar(atual);
-        System.out.println(new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(inclusoes));
+		String inclusoes = new LogCampoFactory().getLog(atual);
+        System.out.println(inclusoes);
 
 
 		System.out.println("---------------------------------------// Alterações // ------------------------------------------------");
-		List<Map<String, Object>> alteracoes = new AlteracaoLogFactory().logar(antigo, atual);
-        System.out.println(new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(alteracoes));
+		String alteracoes = new LogCampoFactory().getLog(antigo, atual);
+        System.out.println(alteracoes);
        
     }
 }
