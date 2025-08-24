@@ -18,14 +18,13 @@ public class Main {
         atual.setPedidos(Arrays.asList(new Pedido(1, "Pedido A alterado"), new Pedido(3, "Pedido C")));
         atual.setTipoCliente(TipoCliente.PESSOA_FISICA);
 
+        
 		System.out.println("---------------------------------------// Inclusões // -------------------------------------------------");
-		String inclusoes = new LogCampoFactory().getLog(atual);
-        System.out.println(inclusoes);
+        System.out.println(new LogCampoFactory().getLogAsJson(atual));
 
 
 		System.out.println("---------------------------------------// Alterações // ------------------------------------------------");
-		String alteracoes = new LogCampoFactory().getLog(antigo, atual);
-        System.out.println(alteracoes);
+        System.out.println(new LogCampoFactory().getLogAsJson(antigo, atual));
        
     }
 }
